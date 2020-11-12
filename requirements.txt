@@ -5,7 +5,7 @@ astroid==2.4.2
 autopep8==1.5.3
 blinker==1.4
 braintree==4.4.0
-certifi==2020.6.20
+certifi==2020.11.8
 cffi==1.14.3
 chardet==3.0.4
 click==7.1.2
@@ -61,7 +61,7 @@ pytz==2020.1
 pyxdg==0.25
 PyYAML==3.12
 reportlab==3.4.0
-requests==2.24.0
+requests==2.25.0
 requests-unixsocket==0.1.5
 SecretStorage==2.3.1
 sip==4.19.21
@@ -72,7 +72,7 @@ toml==0.10.1
 typed-ast==1.4.1
 ubuntu-drivers-common==0.0.0
 ufw==0.36
-urllib3==1.25.11
+urllib3==1.26.1
 Werkzeug==1.0.1
 wrapt==1.12.1
 WTForms==2.3.1

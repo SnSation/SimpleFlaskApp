@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ super() }}Home
+{% endblock %}
+
+{% block content %}
+    <h1>Home Page</h1>
+
+    <div class="list-group">
+        {% for u in users %}
+            <button type="button" class="list-group-item list-group-item-action">{{ u.first_name }} {{ u.last_name }} ({{ u.email }})</button>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <div class="list-group">
+        {% for p in posts %}
+            <button type="button" class="list-group-item list-group-item-action">
+                <span>{{ p.body }} @{{ p.created_on }}</span>
+            </button>
+        {% endfor %}
+    </div>
+{% endblock %}
