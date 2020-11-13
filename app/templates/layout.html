@@ -1,53 +1,88 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>
-        {% block title %} Fakebook - {% endblock %}
-    </title>
-    <!-- Required meta tags -->
+    <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- END Meta Tags -->
 
+	<!-- CSS -->
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<!-- Global CSS -->
+	<!-- [CHANGE]: Relative Path -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+	<!-- Page CSS -->
+	<!-- [CHANGE]: Page Title -->
+    <title>{% block title %}A.Blair -{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ url_for('index') }}">Fakebook</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('ergast') }}">Ergast</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+	<!-- [CHANGE]: "home" to "pagename" -->
+	<!-- Page Container -->
+	<div class="container g_Page_Container">
 
-    <main>
-        <div class="container">
-            {% block content %}
+		<!-- Header -->
+		<div class="row g_Header_Row" id="Header_Row">
+			<!-- Navbar -->
+			<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top g_Nav">
+				<!-- Icon -->
+				<a class="navbar-brand" href="{{ url_for('index') }}"><img class="g_Nav_Icon" src="https://via.placeholder.com/50x50" alt="Icon"></a>
+				<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#g_Nav_Collapse" aria-controls="collapsibleNavId"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="g_Nav_Collapse">
+					<!-- Nav Buttons -->
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0 g_Nav_Links">
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('index') }}">Home<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('projects') }}">Projects<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('web_design') }}">Web Design<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('python') }}">Python<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('about') }}">About<span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="{{ url_for('blog') }}">Blog<span class="sr-only">(current)</span></a>
+						</li>
+					</ul>
+					<!-- Nav Search -->
+					<form class="form-inline my-2 my-lg-0 g_Nav_Search">
+						<input class="form-control mr-sm-2" type="text" placeholder="Search">
+						<button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+					</form>
+				</div>
+			</nav>
+			<!-- END Navbar -->
+		</div>
+		<!-- END Header -->
+
+		<!-- Content -->
+		<div class="row g_Content_Row" id="Content_Row">
+			{% block content %}
             {% endblock %}
-        </div>
-    </main>
-      
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		</div>
+		<!-- END Content -->
+
+		<!-- Footer -->
+		<div class="row g_Footer_Row" id="Footer_Row">
+		</div>
+		<!-- END Footer -->
+
+	</div>
+	<!-- END Page Container -->
+
+	<!-- Bootstrap Scripts -->
+    <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	<!-- END Bootstrap Scripts -->
   </body>
 </html>
