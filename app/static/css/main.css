@@ -1,22 +1,12 @@
 /* Global Stylesheet */
 /* Page Container */
 .g_Page_Container {
-    padding-top:100px;
+    margin-top:100px;
 }
 
 /* Header */
-.g_Header_Row {
 
-}
 /* Navigation */
-.g_Nav {
-
-}
-
-.g_Nav_Icon {
-    
-}
-
 .g_Nav_Links li a:hover{
     color: #fff;
     background-color: #23272b;
