@@ -32,6 +32,22 @@ def about():
 def contact():
     return render_template('contact.html')
 
+@app.route('/blog', methods=['GET'])
+def blog():
+    return render_template('blog.html')
+
+@app.route('/projects', methods=['GET'])
+def projects():
+    return render_template('projects.html')
+
+@app.route('/python', methods=['GET'])
+def python():
+    return render_template('python.html')
+
+@app.route('/web_design', methods=['GET'])
+def web_design():
+    return render_template('web_design.html')
+
 @app.route('/ergast', methods=['GET', 'POST'])
 def ergast():
     if request.method == 'POST':
