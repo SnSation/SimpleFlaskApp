@@ -36,9 +36,42 @@ def contact():
 def blog():
     return render_template('blog.html')
 
-@app.route('/projects', methods=['GET'])
+@app.route('/projects', methods=['GET', 'POST'])
 def projects():
-    return render_template('projects.html')
+    if request.method == 'POST':
+        pokemon_name = request.form.get('pokemon').lower()
+        pokemon_data = requests.get(f'https://pokeapi.co/api/v2/pokemon/{pokemon_name}')
+        if pokemon_data.status_code != 200:
+             context = {
+                'pokemon':
+                    {
+                        'name' : 'Pokemon Not Found',
+                        'type' : "?",
+                        'height': "?",
+                        'weight': "?",
+                        'ability': "?",
+                        'image': 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/201.png'
+                    }
+             }
+        else:
+            pokemon_data = pokemon_data.json()
+            context = {
+                'pokemon':
+                    {
+                        'name' : pokemon_data['species']['name'].title(),
+                        'type' : [x['type']['name'].title() for x in pokemon_data['types']],
+                        'height':pokemon_data['height'],
+                        'weight':pokemon_data['weight'],
+                        'ability':pokemon_data['abilities'][0]['ability']['name'].title(),
+                        'image':pokemon_data['sprites']['front_default']
+                    }
+            
+            }
+    else:
+        context = {
+            'pokemon': []
+        }
+    return render_template('projects.html', **context)
 
 @app.route('/python', methods=['GET'])
 def python():
